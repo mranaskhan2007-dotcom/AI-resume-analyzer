@@ -22,7 +22,7 @@ import {
 } from "lucide-react";
 import Auth from "./components/Auth";
 
-const API = "http://localhost:5000/api";
+const API = "https://ai-resume-analyzer-cu32.onrender.com/api";
 
 const api = axios.create({
   baseURL: API,
@@ -43,8 +43,8 @@ function Toast({ toast, onClose }) {
   return (
     <div
       className={`fixed right-5 top-5 z-[100] flex max-w-sm items-center gap-3 rounded-xl border px-4 py-3 text-sm font-medium shadow-xl ${toast.type === "error"
-          ? "border-red-200 bg-white text-red-600"
-          : "border-green-200 bg-white text-green-700"
+        ? "border-red-200 bg-white text-red-600"
+        : "border-green-200 bg-white text-green-700"
         }`}
     >
       {toast.type === "error" ? (
@@ -78,8 +78,8 @@ function LandingPage({ darkMode, user, onAnalyze, onSignIn }) {
       <div className="mx-auto max-w-3xl text-center">
         <div
           className={`mb-6 inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm ${darkMode
-              ? "border-indigo-500/30 bg-indigo-500/10 text-indigo-300"
-              : "border-indigo-200 bg-indigo-50 text-indigo-600"
+            ? "border-indigo-500/30 bg-indigo-500/10 text-indigo-300"
+            : "border-indigo-200 bg-indigo-50 text-indigo-600"
             }`}
         >
           <Sparkles size={16} />
@@ -177,8 +177,8 @@ function Analyzer({
 
       <div
         className={`rounded-2xl border p-6 shadow-xl sm:p-8 ${darkMode
-            ? "border-slate-800 bg-slate-900"
-            : "border-slate-200 bg-white"
+          ? "border-slate-800 bg-slate-900"
+          : "border-slate-200 bg-white"
           }`}
       >
         <div
@@ -208,8 +208,8 @@ function Analyzer({
 
           <label
             className={`mt-6 inline-flex items-center rounded-xl px-6 py-3 font-medium text-white ${uploading
-                ? "cursor-not-allowed bg-indigo-400"
-                : "cursor-pointer bg-indigo-600 hover:bg-indigo-500"
+              ? "cursor-not-allowed bg-indigo-400"
+              : "cursor-pointer bg-indigo-600 hover:bg-indigo-500"
               }`}
           >
             {uploading ? (
@@ -295,8 +295,8 @@ function Analyzer({
           {resume && !uploading && (
             <div
               className={`mx-auto mt-6 flex max-w-md items-center justify-between rounded-xl border px-4 py-3 text-left ${darkMode
-                  ? "border-slate-700 bg-slate-800"
-                  : "border-indigo-200 bg-indigo-50"
+                ? "border-slate-700 bg-slate-800"
+                : "border-indigo-200 bg-indigo-50"
                 }`}
             >
               <div className="flex min-w-0 items-center gap-3">
@@ -312,8 +312,8 @@ function Analyzer({
 
                   <p
                     className={`text-xs ${darkMode
-                        ? "text-slate-400"
-                        : "text-slate-500"
+                      ? "text-slate-400"
+                      : "text-slate-500"
                       }`}
                   >
                     {(resume.size / 1024 / 1024).toFixed(2)} MB
@@ -347,8 +347,8 @@ function Analyzer({
             }}
             placeholder="Paste the job description here..."
             className={`block w-full resize-y rounded-xl border p-4 text-sm leading-6 outline-none transition ${darkMode
-                ? "border-slate-700 bg-slate-950 text-white placeholder:text-slate-600 focus:border-indigo-500"
-                : "border-slate-300 bg-slate-50 text-slate-900 placeholder:text-slate-400 focus:border-indigo-500"
+              ? "border-slate-700 bg-slate-950 text-white placeholder:text-slate-600 focus:border-indigo-500"
+              : "border-slate-300 bg-slate-50 text-slate-900 placeholder:text-slate-400 focus:border-indigo-500"
               }`}
           />
         </div>
@@ -363,11 +363,11 @@ function Analyzer({
             uploading
           }
           className={`mt-6 flex w-full items-center justify-center gap-2 rounded-xl py-3.5 font-semibold text-white ${!resumeText ||
-              !jobDescriptionRef.current?.value?.trim() ||
-              analyzing ||
-              uploading
-              ? "cursor-not-allowed bg-slate-400"
-              : "bg-indigo-600 hover:bg-indigo-500"
+            !jobDescriptionRef.current?.value?.trim() ||
+            analyzing ||
+            uploading
+            ? "cursor-not-allowed bg-slate-400"
+            : "bg-indigo-600 hover:bg-indigo-500"
             }`}
         >
           {analyzing ? (
@@ -396,8 +396,8 @@ function Result({ darkMode, analysis, onBack }) {
       <button
         onClick={onBack}
         className={`mb-8 flex items-center gap-2 text-sm ${darkMode
-            ? "text-slate-400 hover:text-white"
-            : "text-slate-500 hover:text-slate-900"
+          ? "text-slate-400 hover:text-white"
+          : "text-slate-500 hover:text-slate-900"
           }`}
       >
         <ArrowLeft size={18} />
@@ -423,8 +423,8 @@ function Result({ darkMode, analysis, onBack }) {
 
       <div
         className={`rounded-2xl border p-8 ${darkMode
-            ? "border-slate-800 bg-slate-900"
-            : "border-slate-200 bg-white"
+          ? "border-slate-800 bg-slate-900"
+          : "border-slate-200 bg-white"
           }`}
       >
         <div className="flex flex-col items-center gap-8 md:flex-row">
@@ -435,8 +435,8 @@ function Result({ darkMode, analysis, onBack }) {
 
             <span
               className={`text-xs ${darkMode
-                  ? "text-slate-400"
-                  : "text-slate-500"
+                ? "text-slate-400"
+                : "text-slate-500"
                 }`}
             >
               / 100
@@ -450,8 +450,8 @@ function Result({ darkMode, analysis, onBack }) {
 
             <p
               className={`mt-3 leading-7 ${darkMode
-                  ? "text-slate-400"
-                  : "text-slate-600"
+                ? "text-slate-400"
+                : "text-slate-600"
                 }`}
             >
               {analysis?.summary ||
@@ -485,8 +485,8 @@ function Result({ darkMode, analysis, onBack }) {
 
         <div
           className={`rounded-2xl border p-6 ${darkMode
-              ? "border-slate-800 bg-slate-900"
-              : "border-slate-200 bg-white"
+            ? "border-slate-800 bg-slate-900"
+            : "border-slate-200 bg-white"
             }`}
         >
           <h3 className="text-lg font-semibold">
@@ -495,8 +495,8 @@ function Result({ darkMode, analysis, onBack }) {
 
           <ul
             className={`mt-4 space-y-3 text-sm leading-6 ${darkMode
-                ? "text-slate-300"
-                : "text-slate-600"
+              ? "text-slate-300"
+              : "text-slate-600"
               }`}
           >
             {list(analysis?.suggestions).map(
@@ -533,8 +533,8 @@ function KeywordBox({
   return (
     <div
       className={`rounded-2xl border p-6 ${darkMode
-          ? "border-slate-800 bg-slate-900"
-          : "border-slate-200 bg-white"
+        ? "border-slate-800 bg-slate-900"
+        : "border-slate-200 bg-white"
         }`}
     >
       <h3 className="text-lg font-semibold">
@@ -554,8 +554,8 @@ function KeywordBox({
         ) : (
           <span
             className={`text-sm ${darkMode
-                ? "text-slate-500"
-                : "text-slate-400"
+              ? "text-slate-500"
+              : "text-slate-400"
               }`}
           >
             None found
@@ -622,8 +622,8 @@ function Dashboard({
 
       <div
         className={`mt-8 rounded-2xl border p-6 ${darkMode
-            ? "border-slate-800 bg-slate-900"
-            : "border-slate-200 bg-white"
+          ? "border-slate-800 bg-slate-900"
+          : "border-slate-200 bg-white"
           }`}
       >
         <div className="flex items-center justify-between">
@@ -634,8 +634,8 @@ function Dashboard({
 
             <p
               className={`mt-1 text-sm ${darkMode
-                  ? "text-slate-400"
-                  : "text-slate-500"
+                ? "text-slate-400"
+                : "text-slate-500"
                 }`}
             >
               Your latest resume results.
@@ -656,8 +656,8 @@ function Dashboard({
               <div
                 key={analysis._id}
                 className={`flex items-center justify-between rounded-xl border px-4 py-3 ${darkMode
-                    ? "border-slate-800 bg-slate-950"
-                    : "border-slate-200 bg-slate-50"
+                  ? "border-slate-800 bg-slate-950"
+                  : "border-slate-200 bg-slate-50"
                   }`}
               >
                 <div className="min-w-0">
@@ -668,8 +668,8 @@ function Dashboard({
 
                   <p
                     className={`mt-1 text-xs ${darkMode
-                        ? "text-slate-500"
-                        : "text-slate-400"
+                      ? "text-slate-500"
+                      : "text-slate-400"
                       }`}
                   >
                     {analysis.createdAt
@@ -688,8 +688,8 @@ function Dashboard({
           ) : (
             <div
               className={`py-10 text-center text-sm ${darkMode
-                  ? "text-slate-500"
-                  : "text-slate-400"
+                ? "text-slate-500"
+                : "text-slate-400"
                 }`}
             >
               <HistoryIcon
@@ -723,8 +723,8 @@ function Stat({
   return (
     <div
       className={`rounded-2xl border p-6 ${darkMode
-          ? "border-slate-800 bg-slate-900"
-          : "border-slate-200 bg-white"
+        ? "border-slate-800 bg-slate-900"
+        : "border-slate-200 bg-white"
         }`}
     >
       <div className="flex items-center justify-between">
@@ -749,8 +749,8 @@ function Stat({
 
       <p
         className={`mt-1 text-xs ${darkMode
-            ? "text-slate-500"
-            : "text-slate-400"
+          ? "text-slate-500"
+          : "text-slate-400"
           }`}
       >
         {sub}
@@ -772,8 +772,8 @@ function HistoryPage({
 
       <p
         className={`mt-2 ${darkMode
-            ? "text-slate-400"
-            : "text-slate-600"
+          ? "text-slate-400"
+          : "text-slate-600"
           }`}
       >
         All your saved resume analyses.
@@ -781,8 +781,8 @@ function HistoryPage({
 
       <div
         className={`mt-8 rounded-2xl border ${darkMode
-            ? "border-slate-800 bg-slate-900"
-            : "border-slate-200 bg-white"
+          ? "border-slate-800 bg-slate-900"
+          : "border-slate-200 bg-white"
           }`}
       >
         {history.length ? (
@@ -800,8 +800,8 @@ function HistoryPage({
 
                   <p
                     className={`mt-1 text-sm ${darkMode
-                        ? "text-slate-400"
-                        : "text-slate-500"
+                      ? "text-slate-400"
+                      : "text-slate-500"
                       }`}
                   >
                     {analysis.createdAt
@@ -813,8 +813,8 @@ function HistoryPage({
 
                   <p
                     className={`mt-1 text-xs ${darkMode
-                        ? "text-slate-500"
-                        : "text-slate-400"
+                      ? "text-slate-500"
+                      : "text-slate-400"
                       }`}
                   >
                     {analysis.jobDescription?.slice(
@@ -847,8 +847,8 @@ function HistoryPage({
 
             <p
               className={`mt-2 text-sm ${darkMode
-                  ? "text-slate-500"
-                  : "text-slate-400"
+                ? "text-slate-500"
+                : "text-slate-400"
                 }`}
             >
               Your saved analyses will appear here.
@@ -1143,8 +1143,8 @@ function App() {
 
       <nav
         className={`border-b ${darkMode
-            ? "border-slate-800 bg-slate-950"
-            : "border-slate-200 bg-white"
+          ? "border-slate-800 bg-slate-950"
+          : "border-slate-200 bg-white"
           }`}
       >
         <div className="flex h-20 items-center justify-between px-5 sm:px-8">
@@ -1159,8 +1159,8 @@ function App() {
                   setMenu(false);
                 }}
                 className={`rounded-xl border p-2.5 ${darkMode
-                    ? "border-slate-700 hover:bg-slate-800"
-                    : "border-slate-300 hover:bg-slate-100"
+                  ? "border-slate-700 hover:bg-slate-800"
+                  : "border-slate-300 hover:bg-slate-100"
                   }`}
                 aria-label="Open menu"
               >
@@ -1195,8 +1195,8 @@ function App() {
                 )
               }
               className={`rounded-xl border p-2.5 ${darkMode
-                  ? "border-slate-700 hover:bg-slate-800"
-                  : "border-slate-300 hover:bg-slate-100"
+                ? "border-slate-700 hover:bg-slate-800"
+                : "border-slate-300 hover:bg-slate-100"
                 }`}
             >
               {darkMode ? (
@@ -1217,8 +1217,8 @@ function App() {
                     setSidebar(false);
                   }}
                   className={`flex items-center gap-2 rounded-xl border px-3 py-2.5 text-sm font-medium ${darkMode
-                      ? "border-slate-700 hover:bg-slate-800"
-                      : "border-slate-300 hover:bg-slate-100"
+                    ? "border-slate-700 hover:bg-slate-800"
+                    : "border-slate-300 hover:bg-slate-100"
                     }`}
                 >
                   <div className="flex h-7 w-7 items-center justify-center rounded-full bg-indigo-600 text-xs font-bold text-white">
@@ -1237,8 +1237,8 @@ function App() {
                 {menu && (
                   <div
                     className={`absolute right-0 top-14 z-50 w-52 rounded-xl border p-2 shadow-xl ${darkMode
-                        ? "border-slate-700 bg-slate-900"
-                        : "border-slate-200 bg-white"
+                      ? "border-slate-700 bg-slate-900"
+                      : "border-slate-200 bg-white"
                       }`}
                   >
                     <button
@@ -1247,8 +1247,8 @@ function App() {
                         setMenu(false);
                       }}
                       className={`flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm ${darkMode
-                          ? "hover:bg-slate-800"
-                          : "hover:bg-slate-100"
+                        ? "hover:bg-slate-800"
+                        : "hover:bg-slate-100"
                         }`}
                     >
                       <User size={17} />
@@ -1291,8 +1291,8 @@ function App() {
 
           <aside
             className={`fixed left-0 top-0 z-50 h-full w-72 border-r p-5 shadow-2xl ${darkMode
-                ? "border-slate-800 bg-slate-950"
-                : "border-slate-200 bg-white"
+              ? "border-slate-800 bg-slate-950"
+              : "border-slate-200 bg-white"
               }`}
           >
             <div className="flex items-center justify-between">
@@ -1311,8 +1311,8 @@ function App() {
                   setSidebar(false)
                 }
                 className={`rounded-lg p-2 ${darkMode
-                    ? "text-slate-400 hover:bg-slate-800"
-                    : "text-slate-400 hover:bg-slate-100"
+                  ? "text-slate-400 hover:bg-slate-800"
+                  : "text-slate-400 hover:bg-slate-100"
                   }`}
               >
                 <X size={18} />
@@ -1326,10 +1326,10 @@ function App() {
                   setSidebar(false);
                 }}
                 className={`flex w-full items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium ${page === "home"
-                    ? "bg-indigo-500/10 text-indigo-500"
-                    : darkMode
-                      ? "hover:bg-slate-800"
-                      : "hover:bg-slate-100"
+                  ? "bg-indigo-500/10 text-indigo-500"
+                  : darkMode
+                    ? "hover:bg-slate-800"
+                    : "hover:bg-slate-100"
                   }`}
               >
                 <span className="text-lg leading-none">
@@ -1344,10 +1344,10 @@ function App() {
                   setSidebar(false);
                 }}
                 className={`flex w-full items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium ${page === "dashboard"
-                    ? "bg-indigo-500/10 text-indigo-500"
-                    : darkMode
-                      ? "hover:bg-slate-800"
-                      : "hover:bg-slate-100"
+                  ? "bg-indigo-500/10 text-indigo-500"
+                  : darkMode
+                    ? "hover:bg-slate-800"
+                    : "hover:bg-slate-100"
                   }`}
               >
                 <LayoutDashboard size={19} />
@@ -1360,10 +1360,10 @@ function App() {
                   setSidebar(false);
                 }}
                 className={`flex w-full items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium ${page === "history"
-                    ? "bg-indigo-500/10 text-indigo-500"
-                    : darkMode
-                      ? "hover:bg-slate-800"
-                      : "hover:bg-slate-100"
+                  ? "bg-indigo-500/10 text-indigo-500"
+                  : darkMode
+                    ? "hover:bg-slate-800"
+                    : "hover:bg-slate-100"
                   }`}
               >
                 <HistoryIcon size={19} />
@@ -1448,8 +1448,8 @@ function App() {
         <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/50 px-4">
           <div
             className={`w-full max-w-md rounded-2xl border p-6 shadow-2xl ${darkMode
-                ? "border-slate-700 bg-slate-900"
-                : "border-slate-200 bg-white"
+              ? "border-slate-700 bg-slate-900"
+              : "border-slate-200 bg-white"
               }`}
           >
             <div className="flex items-center justify-between">
@@ -1462,8 +1462,8 @@ function App() {
                   setAccount(false)
                 }
                 className={`rounded-lg p-2 ${darkMode
-                    ? "text-slate-400 hover:bg-slate-800"
-                    : "text-slate-400 hover:bg-slate-100"
+                  ? "text-slate-400 hover:bg-slate-800"
+                  : "text-slate-400 hover:bg-slate-100"
                   }`}
               >
                 <X size={18} />
@@ -1484,8 +1484,8 @@ function App() {
 
                 <p
                   className={`text-sm ${darkMode
-                      ? "text-slate-400"
-                      : "text-slate-500"
+                    ? "text-slate-400"
+                    : "text-slate-500"
                     }`}
                 >
                   {user.email}
