@@ -153,6 +153,8 @@ function Analyzer({
   setResume,
   setResumeText,
   resumeText,
+  jobDescription,
+  setJobDescription,
   uploading,
   setUploading,
   analyzing,
@@ -340,11 +342,8 @@ function Analyzer({
           <textarea
             ref={jobDescriptionRef}
             rows={8}
-            defaultValue=""
-            onInput={(e) => {
-              jobDescriptionRef.current.value =
-                e.currentTarget.value;
-            }}
+            value={jobDescription}
+            onChange={(e) => setJobDescription(e.target.value)}
             placeholder="Paste the job description here..."
             className={`block w-full resize-y rounded-xl border p-4 text-sm leading-6 outline-none transition ${darkMode
               ? "border-slate-700 bg-slate-950 text-white placeholder:text-slate-600 focus:border-indigo-500"
@@ -358,12 +357,12 @@ function Analyzer({
           onClick={onAnalyze}
           disabled={
             !resumeText ||
-            !jobDescriptionRef.current?.value?.trim() ||
+            !jobDescription.trim() ||
             analyzing ||
             uploading
           }
           className={`mt-6 flex w-full items-center justify-center gap-2 rounded-xl py-3.5 font-semibold text-white ${!resumeText ||
-            !jobDescriptionRef.current?.value?.trim() ||
+            !jobDescription.trim() ||
             analyzing ||
             uploading
             ? "cursor-not-allowed bg-slate-400"
@@ -881,6 +880,7 @@ function App() {
 
   const [resume, setResume] = useState(null);
   const [resumeText, setResumeText] = useState("");
+  const [jobDescription, setJobDescription] = useState("");
 
   const jobDescriptionRef = useRef(null);
 
@@ -1002,6 +1002,9 @@ function App() {
     setAccount(false);
     setPage("home");
     setAnalysis(null);
+    setResume(null);
+    setResumeText("");
+    setJobDescription("");
 
     showToast("Logged out successfully.");
   };
@@ -1009,6 +1012,7 @@ function App() {
   const removeResume = () => {
     setResume(null);
     setResumeText("");
+    setJobDescription("");
     setAnalysis(null);
 
     if (jobDescriptionRef.current) {
@@ -1017,9 +1021,7 @@ function App() {
   };
 
   const handleAnalyze = async () => {
-    const jobDescription =
-      jobDescriptionRef.current?.value?.trim() ||
-      "";
+    const currentJobDescription = jobDescription.trim();
 
     if (!resumeText?.trim()) {
       showToast(
@@ -1029,7 +1031,7 @@ function App() {
       return;
     }
 
-    if (!jobDescription) {
+    if (!currentJobDescription) {
       showToast(
         "Please enter a job description.",
         "error"
@@ -1057,7 +1059,7 @@ function App() {
         "/analysis/analyze",
         {
           resumeText,
-          jobDescription,
+          jobDescription: currentJobDescription,
           fileName:
             resume?.name || "Resume.pdf",
         },
@@ -1084,6 +1086,7 @@ function App() {
       // a successful analysis.
       setResume(null);
       setResumeText("");
+      setJobDescription("");
 
       if (jobDescriptionRef.current) {
         jobDescriptionRef.current.value = "";
@@ -1412,6 +1415,8 @@ function App() {
           setResume={setResume}
           resumeText={resumeText}
           setResumeText={setResumeText}
+          jobDescription={jobDescription}
+          setJobDescription={setJobDescription}
           jobDescriptionRef={
             jobDescriptionRef
           }
@@ -1434,6 +1439,7 @@ function App() {
               setPage("analyzer");
               setResume(null);
               setResumeText("");
+              setJobDescription("");
               setAnalysis(null);
 
               if (jobDescriptionRef.current) {
