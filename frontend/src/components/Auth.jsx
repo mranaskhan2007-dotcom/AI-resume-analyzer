@@ -14,7 +14,11 @@ function Auth({ onBack, onAuthDone, initialNotice, darkMode, setDarkMode }) {
         if (!form.email.trim() || !form.password) return setError("Please enter email and password.");
         try {
             setLoading(true);
-            const endpoint = isRegister ? "http://localhost:5000/api/auth/register" : "http://localhost:5000/api/auth/login";
+            const API = "https://ai-resume-analyzer-cu32.onrender.com/api";
+
+            const endpoint = isRegister
+                ? `${API}/auth/register`
+                : `${API}/auth/login`;
             const r = await axios.post(endpoint, form, { timeout: 20000 });
             localStorage.setItem("token", r.data.token);
             localStorage.setItem("user", JSON.stringify(r.data.user));
